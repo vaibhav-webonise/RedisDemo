@@ -28,8 +28,9 @@ public interface RedisService {
   
   /*
    * This service method removes all the keys present in the cache
+   * @Return Boolean value 
    */
-  public void clearRedisCache();
+  public Boolean clearRedisCache();
   
   /*
    * This service method updates the redis cache

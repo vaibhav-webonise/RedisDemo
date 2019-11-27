@@ -15,26 +15,27 @@ import com.webonise.todoapp.model.Todo;
 import com.webonise.todoapp.service.impl.TodoServiceImpl;
 
 @RestController
+@RequestMapping("/todos")
 public class TodoController {
   @Autowired
   private TodoServiceImpl todoService;
 
-  @RequestMapping("/todos")
+  @RequestMapping
   public List<Todo> getTodos() {
     return todoService.getTodos();
   }
 
-  @PostMapping("/todos")
+  @PostMapping
   public Optional<Todo> addTodo(@RequestBody Todo todo) {
     return todoService.saveTodo(todo);
   }
 
-  @DeleteMapping("/todos/{id}")
+  @DeleteMapping("/{id}")
   public ResponseEntity<?> deleteTodo(@PathVariable int id) {
     return todoService.deleteTodo(id);
   }
 
-  @PutMapping("/todos")
+  @PutMapping
   public ResponseEntity<Object> updateTodo(@RequestBody Todo todo) {
     return todoService.updateTodoById(todo);
   }
